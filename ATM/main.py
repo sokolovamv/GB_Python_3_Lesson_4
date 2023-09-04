@@ -34,11 +34,12 @@ while True:
 
     print(f'Ваш баланс после операции : {round(user_cash, 2)}')
 
+    # кэшбэк после 3ьей операции снятия или пополнения
     if successful_operation % 3 == 0:
             user_cash = atm.cashback(user_cash, percent_of_cashback)
             print(f'Ваш баланс после начисления кэшбэка: {round(user_cash, 2)}')
     
-
+    # вывод списка операций
     if successful_operation > 0 and (off_list == [] or successful_operation != list(off_list[-1])[0]):
         off_list.append((successful_operation, user_cash))
         print(off_list)

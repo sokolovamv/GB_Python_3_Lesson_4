@@ -3,9 +3,6 @@
 # Если ключ не хешируем, используйте его строковое представление.
 
 def dict_form(**kwargs) -> dict:
-    off_dict = {}
-    for value, key in kwargs.items():
-        off_dict[key] = value
-    return off_dict
+    return {value if value.__hash__ is not None else str(value): key for key, value in kwargs.items()}
 
 print(dict_form(a=2, b=3, c='a'))
